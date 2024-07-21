@@ -1,0 +1,123 @@
+<!-- Header -->
+<header id="header">
+    <!-- Nav -->
+    <div id="nav">
+        <!-- Main Nav -->
+        <div id="nav-fixed">
+            <div class="container">
+                <!-- logo -->
+                <%= render "shared/front/logo" %>
+                <!-- /logo -->
+
+                <!-- nav -->
+                <%= render "shared/front/nav_catagories" %>
+                <!-- /nav -->
+
+                <!-- search & aside toggle -->
+                <%= render "shared/front/search" %>
+                <!-- /search & aside toggle -->
+            </div>
+        </div>
+        <!-- /Main Nav -->
+
+        <!-- Aside Nav -->
+        <div id="nav-aside">
+            <!-- nav -->
+            <%= render "shared/front/nav_home" %>
+            <!-- /nav -->
+
+            <!-- widget posts -->
+            <%= render "shared/front/recent_posts" %>
+            <!-- /widget posts -->
+
+            <!-- social links -->
+            <%= render "shared/front/follow_us" %>
+            <!-- /social links -->
+
+            <!-- aside nav close -->
+            <button class="nav-aside-close"><i class="fa fa-times"></i></button>
+            <!-- /aside nav close -->
+        </div>
+        <!-- Aside Nav -->
+    </div>
+    <!-- /Nav -->
+</header>
+<!-- /Header -->
+
+<!-- section -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <%= render "shared/front/highlight" %>
+        <!-- /row -->
+
+        <!-- row -->
+        <%= render "shared/front/recent_posts" %>
+        <!-- /row -->
+
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-8">
+                <%= render "shared/front/posts" %>
+            </div>
+
+            <div class="col-md-4">
+                <!-- post widget -->
+                <%= render "shared/front/most_read" %>
+                <!-- /post widget -->
+
+                <!-- post widget -->
+                <%= render "shared/front/featured_post" %>
+                <!-- /post widget -->
+                
+                <!-- ad -->
+                <%= render "shared/front/ad_1" %>
+                <!-- /ad -->
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /section -->
+
+<!-- section -->
+<div class="section section-grey">
+    <!-- container -->
+    <%= render "shared/front/featured_post_bottom" %>
+    <!-- /container -->
+</div>
+<!-- /section -->
+
+<!-- section -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <%= render "shared/front/most_read_bottom" %>
+
+            <div class="col-md-4">
+                <!-- ad -->
+                <%= render "shared/front/ad_1" %>
+                <!-- /ad -->
+                
+                <!-- catagories -->
+                <%= render "shared/front/catagories_right" %>
+                <!-- /catagories -->
+                
+                <!-- tags -->
+                <%= render "shared/front/tags" %>
+                <!-- /tags -->
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /section -->
+
+<!-- Footer -->
+<%= render "shared/front/footer" %>
+<!-- /Footer -->

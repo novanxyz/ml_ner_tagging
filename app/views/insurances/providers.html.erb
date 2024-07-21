@@ -1,0 +1,14 @@
+<%= javascript_pack_tag 'components/insurances/providers', defer: true %>
+<style>
+    <provider-list {
+        margin: 0;
+    }
+    .component_container {
+        padding: 0;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 component_container">
+        <provider-list data-url="/api/providers" form-authenticity-token="<%= form_authenticity_token.to_s %>"></provider-page>
+    </div>
+</div>

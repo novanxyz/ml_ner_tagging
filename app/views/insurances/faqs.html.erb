@@ -1,0 +1,14 @@
+<%= javascript_pack_tag 'components/insurances/faqs', defer: true %>
+<style>
+    <faq-list {
+        margin: 0;
+    }
+    .component_container {
+        padding: 0;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 component_container">
+        <faq-list data-url="/api/faqs" form-authenticity-token="<%= form_authenticity_token.to_s %>"></faq-page>
+    </div>
+</div>

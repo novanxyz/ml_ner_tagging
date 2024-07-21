@@ -1,0 +1,14 @@
+<%= javascript_pack_tag 'components/insurances/claims', defer: true %>
+<style>
+    <insurance-list {
+        margin: 0;
+    }
+    .component_container {
+        padding: 0;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 component_container">
+        <user-claims-list data-url="/api/claims?user_id=<%=user.id%>" form-authenticity-token="<%= form_authenticity_token.to_s %>"></user-claims-list>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<%= stylesheet_link_tag     'tinymce/skins/lightgray/skin.min', media: 'all' %>
+<%= javascript_include_tag  'tinymce/tinymce.min' %>
+
+<!-- Create the editor container -->
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 container">
+        <textarea></textarea>
+    </div>
+</div>
+
+<script>
+    tinymce.init({
+        selector: 'textarea',
+        height: 500,
+        resize: false,
+        menubar: true,
+        theme: 'modern',
+        fontsize_formats: "8pt 9pt 10pt 11pt 12pt 13pt 14pt 15pt 16pt 17pt 18pt 24pt 36pt",
+        plugins: 'code print preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount imagetools contextmenu colorpicker textpattern help',
+        toolbar1: 'formatselect | fontselect | fontsizeselect | bold italic forecolor backcolor | alignleft aligncenter alignright alignjustify | numlist bullist | outdent indent',
+        image_advtab: true,
+        // templates: [
+        //     { title: 'Test template 1', content: 'Test 1' },
+        //     { title: 'Test template 2', content: 'Test 2' }
+        // ],
+        content_css: [
+            '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+            '//www.tinymce.com/css/codepen.min.css'
+        ]
+    });
+
+    function setContents(content) {
+        tinymce.activeEditor.setContent(content);
+    }
+
+    function getContents() {
+        return tinymce.activeEditor.getContent();
+    }
+
+    function clearContent() {
+        tinymce.activeEditor.setContent('');
+    }
+</script>

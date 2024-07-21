@@ -1,0 +1,104 @@
+<%= javascript_pack_tag 'components/core/questions', defer: true %>
+<style>
+    <user-list {
+        margin: 0;
+    }
+    .component_container {
+        padding: 0;
+    }
+</style>
+
+<div class="row">
+    <markazuna-breadcrumb breadcrumb="User <%=@user.firstname + ' ' + @user.lastname%>"></markazuna-breadcrumb>                                        
+</div>
+<div class="row">   
+
+    <div class="col-md-3 col-lg-3 " style="text-align:center">
+        <div class="thumbnail">
+            <%= image_tag(@user.user_picture, :width => 150, :height => 150, :class => 'img-circle img-cloud', :onerror => "this.onerror=null;this.src='#{url_to_image('default_user_profile.png')}';") %>
+        </div>
+        <div class="caption">
+            <p>
+                <%= 'interest'.pluralize(@user.interests.count) +':' %>
+                <br>
+                <% @user.interests.each do |row| %>
+                    <span class="label label-success"><%= row.name %></span>
+                <% end %>
+            </p>
+            <p>
+                Medical History:
+                <br>
+                <% @meta_descriptions.each do |row| %>
+                    <span class="label label-success"><%= row[:value] %></span>
+                <% end %>
+            </p>
+        </div>        
+    </div>
+    <div class="col-md-9 col-lg-9">
+        <table class="table table-user-information">
+            <tbody>
+            <tr>
+                <td>Name:</td>
+                <td><%= @user.firstname %> <%= @user.lastname %></td>
+            </tr>
+            <tr>
+                <td>Username:</td>
+                <td><%= @user.username %></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><a href="mailto:<%= @user.email %>"><%= @user.email %></a></td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td><%= @user.gender %></td>
+            </tr>
+            <tr>
+                <td>Birthday:</td>
+                <td><%= @user.birthday %></td>
+            </tr>
+            <tr>
+                <td>City:</td>
+                <td><%= @user.city.name %></td>
+            </tr>
+            <tr>
+                <td>Phone:</td>
+                <td><%= @user.phone %></td>
+            </tr>
+            <tr>
+                <td>Joined Date:</td>
+                <td><%= @user.created_at.strftime("%d %b %Y") %></td>
+            </tr>
+            <tr>
+                <td>Status:</td>
+                <td>
+                    <% if @user.is_active %>
+                        <span class="label label-success">Active</span>
+                    <% else %>
+                        <span class="label label-danger">Blocked</span>
+                    <% end %>
+                </td>
+            </tr>
+            <tr>
+                <td>Version</td>
+                <td><%= @user.version.empty? ? "1.0.0" : @user.version %></td>
+            </tr>
+            <tr>
+                <td>Last Sync Data</td>
+                <td><%= !@user.last_sync_data.nil? ? @user.last_sync_data.in_time_zone("Jakarta").strftime("%d %b %Y %H:%M:%S %z") : '' %></td>
+            </tr>
+            </tbody>
+        </table>
+
+
+        <%= link_to 'Edit', user_edit_path(@user), class: 'btn btn-primary btn-length-medium btn-edit' %>
+        <%= link_to 'Cancel', '/backoffice/users', class: 'btn btn-default btn-length-medium' %>
+    </div>
+</div>
+<hr>
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 component_container">
+        <question-list data-url="/api/questions?user_id=<%=@user.id%>" form-authenticity-token="<%= form_authenticity_token.to_s %>" hide-search="true" hide-new="true"></question-list>
+    </div>
+</div>

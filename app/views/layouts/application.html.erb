@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alodokter | BackOffice </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+
+    <%= stylesheet_link_tag 'admin/bootstrap/dist/css/bootstrap.min.css' %>
+    <%= stylesheet_link_tag 'admin/font-awesome/css/font-awesome.min.css' %>
+    <%= stylesheet_link_tag 'admin/nprogress/nprogress.css' %>
+    <%= stylesheet_link_tag 'admin/iCheck/skins/flat/green.css' %>
+    <%= stylesheet_link_tag 'admin/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css' %>
+    <%= stylesheet_link_tag 'admin/jqvmap/dist/jqvmap.min.css' %>
+    <%= stylesheet_link_tag 'admin/bootstrap-daterangepicker/daterangepicker.css' %>
+    <%= stylesheet_link_tag 'admin/custom.css' %>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <%= javascript_include_tag 'application' %>
+
+    <!-- webcomponents.js (v1 spec polyfills) -->
+    <script src="/custom-elements-es5-adapter.js"></script>
+
+    <%= csrf_meta_tags %>
+</head>
+<body class="nav-md">
+	<div class="container body">
+		<div class="main_container">
+			<div class="col-md-3 left_col">
+				<div class="left_col scroll-view">
+					<div class="navbar nav_title" style="border: 0;">
+						<a href="/backoffice" class="site_title">
+							<img src="/assets/admin/logo.png"/> 
+							<span>BackOffice</span>
+						</a>
+					</div>
+
+					<div class="clearfix"></div>
+
+					<!-- menu profile quick info -->
+					<%= render 'shared/sidebar_profile' %>
+					<!-- /menu profile quick info -->
+					<br />
+					<!-- sidebar menu -->
+					<%= render 'shared/sidebar_menu' %>
+					<!-- /sidebar menu -->
+
+					<!-- /menu footer buttons -->
+					<!--div class="sidebar-footer hidden-small">
+						<a data-toggle="tooltip" data-placement="top" title="Settings">
+							<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+						</a>
+						<a data-toggle="tooltip" data-placement="top" title="FullScreen">
+							<span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+						</a>
+						<a data-toggle="tooltip" data-placement="top" title="Lock">
+							<span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+						</a>
+						<a data-toggle="tooltip" data-placement="top" title="Logout" href="/admin/logout">
+							<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+						</a>
+					</div-->
+					<!-- /menu footer buttons -->
+				</div>
+			</div>
+
+			<!-- top navigation -->
+			<%= render 'shared/top_navigation' %>
+			<!-- /top navigation -->
+
+			<!-- page content -->
+			<div class="right_col" role="main">
+				<%= yield %>
+			</div>
+			<!-- /page content -->
+
+			<!-- footer content -->
+			
+			<!-- /footer content -->
+		</div>
+	</div>
+
+	<!-- jQuery -->	
+	<!-- Bootstrap -->
+	<%= javascript_include_tag 'admin/bootstrap/dist/js/bootstrap.min' %>
+	<!-- FastClick -->
+	<%= javascript_include_tag 'admin/fastclick/lib/fastclick' %>
+	<!-- NProgress -->
+	<%= javascript_include_tag 'admin/nprogress/nprogress' %>
+	<!-- Chart.js -->
+	<%= javascript_include_tag 'admin/Chart.js/dist/Chart.min' %>
+	<!-- gauge.js -->
+	<%= javascript_include_tag 'admin/gauge.js/dist/gauge.min' %>
+	<!-- bootstrap-progressbar -->
+	<%= javascript_include_tag 'admin/bootstrap-progressbar/bootstrap-progressbar.min' %>
+	<!-- iCheck -->
+	<%= javascript_include_tag 'admin/iCheck/icheck.min' %>
+	<!-- Skycons -->
+	<%= javascript_include_tag 'admin/skycons/skycons' %>
+	<!-- Flot -->
+	<%= javascript_include_tag 'admin/Flot/jquery.flot' %>
+	<%= javascript_include_tag 'admin/Flot/jquery.flot.pie' %>
+	<%= javascript_include_tag 'admin/Flot/jquery.flot.time' %>
+	<%= javascript_include_tag 'admin/Flot/jquery.flot.stack' %>
+	<%= javascript_include_tag 'admin/Flot/jquery.flot.resize' %>
+	<!-- Flot plugins -->
+	<%= javascript_include_tag 'admin/flot.orderbars/js/jquery.flot.orderBars' %>
+	<%= javascript_include_tag 'admin/flot-spline/js/jquery.flot.spline.min' %>
+	<%= javascript_include_tag 'admin/flot.curvedlines/curvedLines' %>
+	<!-- DateJS -->
+	<%= javascript_include_tag 'admin/DateJS/build/date' %>
+	<!-- JQVMap -->
+	<%= javascript_include_tag 'admin/jqvmap/dist/jquery.vmap' %>
+	<%= javascript_include_tag 'admin/jqvmap/dist/maps/jquery.vmap.world' %>
+	<%= javascript_include_tag 'admin/jqvmap/examples/js/jquery.vmap.sampledata' %>
+	<!-- bootstrap-daterangepicker -->
+	<%= javascript_include_tag 'admin/moment/min/moment.min' %>
+	<%= javascript_include_tag 'admin/bootstrap-daterangepicker/daterangepicker' %>
+
+	<!-- Custom Theme Scripts -->
+	<%= javascript_include_tag 'admin/custom.js' %>
+
+</body>
+</html>

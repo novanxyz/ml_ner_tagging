@@ -1,0 +1,44 @@
+{
+  "name": "backoffice-migrate",
+  "private": true,
+  "dependencies": {
+    "@cwmr/paper-autocomplete": "^4.0.0",
+    "@polymer/app-layout": "^3.0.2",
+    "@polymer/iron-ajax": "^3.0.1",
+    "@polymer/iron-flex-layout": "^3.0.1",
+    "@polymer/iron-form": "^3.0.1",
+    "@polymer/iron-icons": "^3.0.1",
+    "@polymer/iron-input": "^3.0.1",
+    "@polymer/iron-list": "^3.0.1",
+    "@polymer/iron-location": "^3.0.1",
+    "@polymer/iron-scroll-threshold": "^3.0.1",
+    "@polymer/paper-button": "^3.0.1",
+    "@polymer/paper-card": "^3.0.1",
+    "@polymer/paper-dialog": "^3.0.1",
+    "@polymer/paper-dropdown-menu": "^3.0.1",
+    "@polymer/paper-fab": "^3.0.1",
+    "@polymer/paper-icon-button": "^3.0.2",
+    "@polymer/paper-input": "^3.0.1",
+    "@polymer/paper-item": "^3.0.1",
+    "@polymer/paper-listbox": "^3.0.1",
+    "@polymer/paper-progress": "^3.0.1",
+    "@polymer/paper-radio-button": "^3.0.1",
+    "@polymer/paper-radio-group": "^3.0.1",
+    "@polymer/paper-tabs": "^3.0.1",
+    "@polymer/polymer": "^3.1.0",
+    "@rails/webpacker": "3.5",
+    "@vaadin/vaadin-grid": "^5.3.1",
+    "@vaadin/vaadin-upload": "^4.2.1",
+    "@webcomponents/webcomponentsjs": "^2.2.7",
+    "polymer-font-awesome": "^1.0.0",
+    "purecss": "^1.0.0",
+    "tinymce": "4.8.5",
+    "web-animations-js": "^2.3.1"
+  },
+  "scripts": {
+    "postinstall": "rsync -av node_modules/@polymer app/javascript/; rm -rf node_modules/@polymer"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
+  }
+}

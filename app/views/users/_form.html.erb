@@ -1,0 +1,141 @@
+<%= form_for(@user, url: @url, html: {class: 'form-horizontal user'}) do |f| %>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group<%= ' has-error has-feedback' if flash.include?'firstname' %>">
+                <%= f.label :firstname, 'Firstname', class: 'col-sm-4 control-label' %>
+                <div class="col-sm-8">
+                    <%= f.text_field :firstname, autofocus: true, class: 'form-control', placeholder: 'Firstname', :disabled => disabled %>
+                    <% if flash.include?'firstname' %>
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                        <span class="help-block"><%= flash[:firstname][0] %></span>
+                    <% end %>
+                </div>
+            </div>
+            <div class="form-group<%= ' has-error has-feedback' if flash.include?'lastname' %>">
+                <%= f.label :lastname, 'Lastname', class: 'col-sm-4 control-label' %>
+                <div class="col-sm-8">
+                    <%= f.text_field :lastname, class: 'form-control', placeholder: 'Lastname', :disabled => disabled %>
+                    <% if flash.include?'lastname' %>
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                        <span class="help-block"><%= flash[:lastname][0] %></span>
+                    <% end %>
+                </div>
+            </div>
+            <div class="form-group<%= ' has-error has-feedback' if flash.include?'email' %>">
+                <%= f.label :email, 'Email', class: 'col-sm-4 control-label' %>
+                <div class="col-sm-8">
+                    <%= f.email_field :email, class: 'form-control', placeholder: 'Email', :disabled => disabled %>
+                    <% if flash.include?'email' %>
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                        <span class="help-block"><%= flash[:email][0] %></span>
+                    <% end %>
+                </div>
+            </div>
+            <div class="form-group<%= ' has-error has-feedback' if flash.include?'password' %>">
+                <%= f.label :password, 'Password', class: 'col-sm-4 control-label' %>
+                <div class="col-sm-8">
+                    <%= f.password_field :password, autocomplete: 'off', class: 'form-control', placeholder: 'Password', :disabled => disabled %>
+                    <% if flash.include?'password' %>
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                        <span class="help-block"><%= flash[:password][0] %></span>
+                    <% end %>
+                    <div class="error-message" style="display: none;">
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                        <span class="help-block">can't be blank</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group<%= ' has-error has-feedback' if flash.include?'birthday' %>">
+                <%= f.label :birthday, 'Birthday', class: 'col-sm-4 control-label' %>
+                <div class="col-sm-8">
+                    <%= f.date_field :birthday, value: f.object.birthday.empty? ? Time.now.strftime('%Y-%m-%d') : DateTime.parse(f.object.birthday).strftime('%Y-%m-%d'), class: 'form-control', :disabled => disabled %>
+                    <% if flash.include?'birthday' %>
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                        <span class="help-block"><%= flash[:birthday][0] %></span>
+                    <% end %>
+                </div>
+            </div>
+            <div class="form-group<%= ' has-error has-feedback' if flash.include?'gender' %>">
+                <%= f.label :gender, 'Gender', class: 'col-sm-4 control-label', style: 'padding-top: 0px;' %>
+                <div class="col-sm-8">
+                    <%= f.radio_button :gender, 'laki-laki', :checked => true %>
+                    <%= label :gender, 'laki-laki' %>
+                    <%= f.radio_button :gender, 'perempuan' %>
+                    <%= label :gender, 'perempuan' %>
+                    <% if flash.include?'gender' %>
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                        <span class="help-block"><%= flash[:gender][0] %></span>
+                    <% end %>
+                </div>
+            </div>
+            <div class="form-group<%= ' has-error has-feedback' if flash.include?'city' %>">
+                <%= f.label :city, 'City', class: 'col-sm-4 control-label' %>
+                <div class="col-sm-8">
+                    <%= f.select :city, options_for_select( @city.collect {|c| [  c.name, c.id ]}, @user.city_id ), {prompt: 'Select City'}, class: 'form-control', :disabled => disabled %>
+                    <% if flash.include?'city' %>
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                        <span class="help-block"><%= flash[:city][0] %></span>
+                    <% end %>
+                </div>
+            </div>
+            <div class="form-group<%= ' has-error has-feedback' if flash.include?'phone' %>">
+                <%= f.label :phone, 'Phone', class: 'col-sm-4 control-label' %>
+                <div class="col-sm-8">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">+62</span>
+                        <%= f.text_field :phone, class: 'form-control', placeholder: '8xxxxxx', :disabled => disabled %>
+
+                    </div>
+                    <% if flash.include?'phone' %>
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                        <span class="help-block"><%= flash[:phone][0] %></span>
+                    <% end %>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-md-8">
+            <div class="form-group user-checkbox<%= ' has-error has-feedback' if flash.include?'interests' %>">
+                <%= f.label 'Interest', class: 'col-sm-2 control-label' %>
+                <div class="col-sm-10 col-multi">                    
+                    <%= f.collection_check_boxes :interests, @interests, :id, :name do |b| %>
+                        <div class="collection-check-box">
+                            <% if !@user[:interest_ids].nil? and @user[:interest_ids].include? b.value %>
+                                <%= b.check_box(class: 'select', checked: true) %>
+                                <%= b.label %>
+                            <% else %>
+                                <%= b.check_box(class: 'select') %>
+                                <%= b.label %>
+                            <% end %>
+                        </div>
+                    <% end %>
+                    <% if flash.include?'interests' %>
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                        <span class="help-block"><%= flash[:interests][0] %></span>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top:20px;">
+        <div class="text-center">
+            <% if disabled -%>
+                <div class="form-group">
+                    <div class="col-sm-offset-1 col-sm-10">
+                        <%= link_to 'Edit', edit_backoffice_user_path(@user), class: 'btn btn-primary btn-length-medium btn-edit btn-responsive-custom' %> <%= link_to 'Cancel', backoffice_users_path, class: 'btn btn-default btn-length-medium btn-responsive-custom' %>
+                    </div>
+                </div>
+            <% else -%>
+                <div class="form-group">
+                    <div class="col-sm-offset-1 col-sm-10">
+                        <%= f.submit 'Save', class: 'btn btn-primary btn-length-medium btn-responsive-custom' %> <%= link_to 'Cancel', core_user_path(@user), class: 'btn btn-default btn-length-medium btn-responsive-custom' %>
+                    </div>
+                </div>
+            <% end -%>
+        </div>
+    </div>
+<% end %>
+

@@ -1,0 +1,10 @@
+<div class="profile clearfix">
+    <div class="profile_pic">
+        <%= image_tag(current_user.user_picture, :class => 'img-circle img-cloud profile_img', :onerror => "this.onerror=null;this.src='#{url_to_image('default_user_profile.png')}';") %>
+    </div>
+    <div class="profile_info">        
+        <span>Alo,</span>
+        <h2> <%=  current_user.firstname + ' ' + current_user.lastname %></h2>						
+    
+    </div>
+</div>

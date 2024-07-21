@@ -1,0 +1,14 @@
+<%= javascript_pack_tag 'components/core/admins', defer: true %>
+<style>
+    <admin-list {
+        margin: 0;
+    }
+    .component_container {
+        padding: 0;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 component_container">
+        <admin-list data-url="/api/admins" form-authenticity-token="<%= form_authenticity_token.to_s %>"></admin-page>
+    </div>
+</div>

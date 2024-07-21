@@ -1,0 +1,14 @@
+<%= javascript_pack_tag 'components/users/notifications', defer: true %>
+<style>
+    <user_notification-list {
+        margin: 0;
+    }
+    .component_container {
+        padding: 0;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 component_container">
+        <notification-list data-url="/api/user_notifications" form-authenticity-token="<%= form_authenticity_token.to_s %>"></notification-list>
+    </div>
+</div>

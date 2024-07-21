@@ -1,0 +1,23 @@
+## cloudinary not support for rails 5 yet
+## https://github.com/cloudinary/cloudinary_gem/issues/211#issuecomment-236515162
+
+development:
+  cloud_name: dk0z4ums3
+  api_key: '353988576542627'
+  api_secret: y5ogIPEG0yhAMeXzkBfTHMo1Xhc
+  enhance_image_tag: true
+  static_image_support: false
+
+production:
+  cloud_name: dk0z4ums3
+  api_key: '353988576542627'
+  api_secret: y5ogIPEG0yhAMeXzkBfTHMo1Xhc
+  enhance_image_tag: true
+  static_image_support: true
+
+test:
+  cloud_name: dk0z4ums3
+  api_key: '353988576542627'
+  api_secret: y5ogIPEG0yhAMeXzkBfTHMo1Xhc
+  enhance_image_tag: true
+  static_image_support: false

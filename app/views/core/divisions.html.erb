@@ -1,0 +1,14 @@
+<%= javascript_pack_tag 'components/core/divisions', defer: true %>
+<style>
+    <division-list {
+        margin: 0;
+    }
+    .component_container {
+        padding: 0;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 component_container">
+        <division-list data-url="/api/divisions" form-authenticity-token="<%= form_authenticity_token.to_s %>"></division-page>
+    </div>
+</div>

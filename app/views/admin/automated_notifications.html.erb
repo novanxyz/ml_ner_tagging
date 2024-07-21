@@ -1,0 +1,14 @@
+<%= javascript_pack_tag 'components/admin/automated_notifications', defer: true %>
+<style>
+    <automated-notification-list {
+        margin: 0;
+    }
+    .component_container {
+        padding: 0;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 component_container">
+        <automated-notification-list data-url="/api/automated_notifications" form-authenticity-token="<%= form_authenticity_token.to_s %>"></automated-notification-list>
+    </div>
+</div>

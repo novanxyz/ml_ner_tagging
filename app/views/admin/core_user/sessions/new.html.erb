@@ -1,0 +1,34 @@
+<div>
+	<a class="hiddenanchor" id="signup"></a>
+	<a class="hiddenanchor" id="signin"></a>
+
+	<div class="login_wrapper">
+		<div class="animate form login_form">
+			<section class="login_content">
+				<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+					<h1>Backoffice Login</h1>
+					<div>
+						<%= f.email_field :email, class: "form-control", placeholder: "Email"%>
+					</div>
+					<div>
+						<%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+					</div>
+					<div>
+						<%= f.submit "Log in", class: "btn btn-default submit" %>
+						<!--a class="reset_pass" href="#">Lost your password?</a-->
+					</div>
+
+					<div class="clearfix"></div>
+
+					<div class="separator">						
+						<div>
+							<h1>Backoffice Alodokter</h1>
+							<p>©2019 All Rights Reserved. Alodokter. Privacy and Terms</p>
+						</div>
+					</div>
+				<% end %>
+			</section>
+		</div>
+
+	</div>
+</div>

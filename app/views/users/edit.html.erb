@@ -1,0 +1,9 @@
+<%= javascript_pack_tag 'components/core/users', defer: true %>
+
+<div class="row list-header">
+    <markazuna-breadcrumb breadcrumb="User <%=@user.firstname + ' ' + @user.lastname%>"></markazuna-breadcrumb>                                        
+</div>
+
+<div class="panel-body">    
+    <%= render 'users/form', :disabled => false %>
+</div>

@@ -1,0 +1,120 @@
+<%= stylesheet_link_tag     'quill/dist/quill.snow', media: 'all' %>
+<%= javascript_include_tag  'quill/dist/quill.min' %>
+<%= javascript_include_tag  'quill-image-resize-module/image-resize.min' %>
+<%= javascript_include_tag  'bc-quill-video-resize-module/video-resize.min' %>
+<%= javascript_include_tag  'quill-image-drop-module/image-drop.min' %>
+
+<style>
+    #editor {
+        width: 100%;
+        height: 600px;
+    }
+    .ql-editor {
+        background-color: white;
+    }
+    /* fix bugs issue on quill editor for bold and italic */
+    .ql-editor strong {
+        font-weight: bold;
+    }
+    .ql-editor em {
+        font-style: italic;
+    }
+</style>
+
+<!-- Create the editor container -->
+<div id="toolbar">
+    <span class="ql-formats">
+        <select class="ql-font"></select>
+        <select class="ql-size"></select>
+    </span>
+    <span class="ql-formats">
+        <button class="ql-bold"></button>
+        <button class="ql-italic"></button>
+        <button class="ql-underline"></button>
+        <button class="ql-strike"></button>
+    </span>
+    <span class="ql-formats">
+        <select class="ql-color"></select>
+        <select class="ql-background"></select>
+    </span>
+    <span class="ql-formats">
+        <button class="ql-script" value="sub"></button>
+        <button class="ql-script" value="super"></button>
+    </span>
+    <span class="ql-formats">
+        <button class="ql-header" value="1"></button>
+        <button class="ql-header" value="2"></button>
+        <button class="ql-blockquote"></button>
+        <button class="ql-code-block"></button>
+    </span>
+    <span class="ql-formats">
+        <button class="ql-list" value="ordered"></button>
+        <button class="ql-list" value="bullet"></button>
+        <button class="ql-indent" value="-1"></button>
+        <button class="ql-indent" value="+1"></button>
+    </span>
+    <span class="ql-formats">
+        <select class="ql-align"></select>
+    </span>
+    <span class="ql-formats">
+        <button class="ql-link"></button>
+        <button class="ql-image"></button>
+        <button class="ql-video"></button>
+        <button class="ql-formula"></button>
+    </span>
+    <span class="ql-formats">
+        <button class="ql-clean"></button>
+    </span>
+</div>
+<div id="editor"></div>
+
+<!-- Initialize Quill editor -->
+<script>
+    var quill = new Quill('#editor', {
+        modules: {
+            toolbar: '#toolbar',
+            imageResize: {},
+            videoResize: {
+                handleStyles: {
+                    backgroundColor: 'black',
+                    border: 'none',
+                    color: 'white'
+                },
+                displayStyles: {
+                    backgroundColor: 'black',
+                    border: 'none',
+                    color: 'white'
+                },
+                toolbarStyles: {
+                    backgroundColor: 'black',
+                    border: 'none',
+                    color: 'white'
+                }
+            },
+            imageDrop: true
+        },
+        placeholder: 'Compose an article...',
+        theme: 'snow'
+    });
+
+    function getContents() {
+        return JSON.stringify(quill.getContents());
+    }
+
+    function setContents(content) {
+        quill.setContents(JSON.parse(content));
+    }
+
+    function getContentsHTML() {
+        if (quill) {
+            return document.querySelector('.ql-editor').innerHTML;
+        }
+        return '';
+    }
+
+    function clearContent() {
+        if (quill) {
+            document.querySelector('.ql-editor').innerHTML = '';
+        }
+    }
+</script>

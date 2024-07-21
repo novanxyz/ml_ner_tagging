@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
+    <title>Alodokter | Backoffice </title>
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <!-- Bootstrap -->
+    <%= stylesheet_link_tag 'front/bootstrap.min' %>
+    <!-- Font Awesome Icon -->
+    <%= stylesheet_link_tag 'front/font-awesome.min' %>
+    <!-- Custom stlylesheet -->
+    <%= stylesheet_link_tag 'front/style' %>
+
+    <%= javascript_include_tag  'application' %>
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:700%7CNunito:300,600" rel="stylesheet"> 
+
+    <!-- webcomponents.js (v1 spec polyfills) -->
+    <script src="/custom-elements-es5-adapter.js"></script>
+
+    <%= csrf_meta_tags %>
+</head>
+<body>
+    <%= yield %>
+    <!-- jQuery Plugins -->
+    <%= javascript_include_tag 'front/jquery.min' %>
+    <%= javascript_include_tag 'front/bootstrap.min' %>
+    <%= javascript_include_tag 'front/main' %>
+</body>
+</html>

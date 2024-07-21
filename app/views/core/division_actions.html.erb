@@ -1,0 +1,14 @@
+<%= javascript_pack_tag 'components/core/division_actions', defer: true %>
+<style>
+    <division_action-list {
+        margin: 0;
+    }
+    .component_container {
+        padding: 0;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 component_container">
+        <division_action-list data-url="/api/division_actions" form-authenticity-token="<%= form_authenticity_token.to_s %>"></division_action-page>
+    </div>
+</div>

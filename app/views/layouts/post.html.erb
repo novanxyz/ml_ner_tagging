@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+		<title>Markazuna | </title>
+
+        <%= stylesheet_link_tag 'application', media: 'all' %>
+
+		<!-- Google font -->
+		<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:700%7CNunito:300,600" rel="stylesheet"> 
+
+        <!-- Bootstrap -->
+        <%= stylesheet_link_tag 'front/bootstrap.min' %>
+        <!-- Font Awesome Icon -->
+        <%= stylesheet_link_tag 'front/font-awesome.min' %>
+        <!-- Custom stlylesheet -->
+        <%= stylesheet_link_tag 'front/style' %>
+
+        <%= javascript_include_tag 'application' %>
+
+        <!-- webcomponents.js (v1 spec polyfills) -->
+        <script src="/custom-elements-es5-adapter.js"></script>
+
+        <%= csrf_meta_tags %>
+    </head>
+	<body>
+		<!-- Header -->
+		<header id="header">
+			<!-- Nav -->
+			<div id="nav">
+				<!-- Main Nav -->
+				<div id="nav-fixed">
+					<div class="container">
+						<!-- logo -->
+						<%= render "shared/front/logo" %>
+						<!-- /logo -->
+
+						<!-- nav -->
+						<%= render "shared/front/nav_catagories" %>
+						<!-- /nav -->
+
+						<!-- search & aside toggle -->
+						<%= render "shared/front/search" %>
+						<!-- /search & aside toggle -->
+					</div>
+				</div>
+				<!-- /Main Nav -->
+
+				<!-- Aside Nav -->
+				<div id="nav-aside">
+					<!-- nav -->
+					<%= render "shared/front/nav_home" %>
+					<!-- /nav -->
+
+					<!-- widget posts -->
+					<%= render "shared/front/recent_posts_hide" %>
+					<!-- /widget posts -->
+
+					<!-- social links -->
+					<%= render "shared/front/follow_us" %>
+					<!-- /social links -->
+
+					<!-- aside nav close -->
+					<button class="nav-aside-close"><i class="fa fa-times"></i></button>
+					<!-- /aside nav close -->
+				</div>
+				<!-- Aside Nav -->
+			</div>
+			<!-- /Nav -->
+			
+			<!-- Page Header -->
+			<%= render "shared/front/page_header" %>
+			<!-- /Page Header -->
+		</header>
+		<!-- /Header -->
+
+		<!-- section -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<!-- Post content -->
+					<div class="col-md-8">
+						<div class="section-row sticky-container">
+                            <%= yield %>
+						</div>
+
+						<!-- ad -->
+						<%= render "shared/front/ad_2" %>
+						<!-- ad -->
+						
+						<!-- author -->
+						<%= render "shared/front/author" %>
+						<!-- /author -->
+
+						<!-- comments -->
+						<%= render "shared/front/comments" %>
+						<!-- /comments -->
+
+						<!-- reply -->
+						<%= render "shared/front/reply" %>
+						<!-- /reply -->
+					</div>
+					<!-- /Post content -->
+
+					<!-- aside -->
+					<div class="col-md-4">
+						<!-- ad -->
+						<%= render "shared/front/ad_1" %>
+						<!-- /ad -->
+
+						<!-- post widget -->
+						<%= render "shared/front/most_read" %>
+						<!-- /post widget -->
+
+						<!-- post widget -->
+						<%= render "shared/front/featured_post" %>
+						<!-- /post widget -->
+						
+						<!-- catagories -->
+						<%= render "shared/front/catagories_right" %>
+						<!-- /catagories -->
+						
+						<!-- tags -->
+						<%= render "shared/front/tags" %>
+						<!-- /tags -->
+						
+						<!-- archive -->
+						<%= render "shared/front/archive" %>
+						<!-- /archive -->
+					</div>
+					<!-- /aside -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /section -->
+
+		<!-- Footer -->
+		<%= render "shared/front/footer" %>
+		<!-- /Footer -->
+
+        <!-- jQuery Plugins -->
+        <%= javascript_include_tag 'front/jquery.min' %>
+        <%= javascript_include_tag 'front/bootstrap.min' %>
+        <%= javascript_include_tag 'front/main' %>
+	</body>
+</html>

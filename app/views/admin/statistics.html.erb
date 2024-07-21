@@ -1,0 +1,14 @@
+<%= javascript_pack_tag 'components/admin/statistics', defer: true %>
+<style>
+    <statistic-list {
+        margin: 0;
+    }
+    .component_container {
+        padding: 0;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 component_container">
+        <statistic-list data-url="/api/statistics" form-authenticity-token="<%= form_authenticity_token.to_s %>"></statistic-page>
+    </div>
+</div>
